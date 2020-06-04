@@ -55,30 +55,42 @@
 	let index = -1;
 	let current;
 
+	const shuffle = (word) => {
+	// randomly it or en or ru 
+	const reverse = Math.floor(Math.random() * 6) % 2 === 0;
+	if (reverse ) {
+		return [
+			word.it,
+			word.ru || word.en,
+		];
+	} else {
+		return [
+			word.ru || word.en,
+			word.it,
+		];
+	}
+	};
+
 	const start = () => {
 		// take the random word from bad
 		const words = getVocabulary();
 		const bad = words.bad;
-		index = Math.floor(Math.random() * bad.length);
-		console.log('index', index);
-		const x = bad[index];
-		if (x) {
-			// randomly it or en or ru 
-			const reverse = Math.floor(Math.random() * 6) % 2 === 0;
-			if (reverse ) {
-				current = [
-					x.it,
-					x.ru || x.en,
-				];
-			} else {
-				current = [
-					x.ru || x.en,
-					x.it,
-				];
-			}
-		} else {
+		const length = bad.length;
+		if (length === 0) {
 			current = undefined;
+			return;
+		} else if (length === 1) {
+			current = shuffle(bad[0]);
+			return;
 		}
+
+		let newIndex;
+		do {
+			newIndex = Math.floor(Math.random() * length);
+		} while (newIndex === index);
+		index = newIndex;
+
+		current = shuffle(bad[index]);
 	};
 
 	const next = (isGood) => {
@@ -183,7 +195,7 @@
 		left: 0;
 		backface-visibility: hidden;
 		background-color: #f4f4f4;
-		border-radius: 3px;
+		border-radius: 10px;
 		border: 1px solid #fbf2ef;
 	}
 
@@ -204,7 +216,13 @@
 	}
 
 	.back {
+		color: transparent;
+		background: #ff3e00;
 		transform: rotateY( 180deg );
+	}
+
+	.flipped .back {
+		color: #fff;
 	}
 
 </style>
