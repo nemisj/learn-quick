@@ -196,7 +196,6 @@
 		backface-visibility: hidden;
 		background-color: #f4f4f4;
 		border-radius: 10px;
-		border: 1px solid #fbf2ef;
 	}
 
 	.text {
@@ -205,7 +204,7 @@
 		font-size: 4em;
 		font-weight: 100;
 		margin: 0;
-		padding: 1rem 0.5rem;
+		padding: 1rem 2rem;
 		box-sizing: border-box;
 		justify-content: center;
 		display: flex;
