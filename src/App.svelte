@@ -63,10 +63,19 @@
 		console.log('index', index);
 		const x = bad[index];
 		if (x) {
-			current = [
-				x.it,
-				x.en,
-			];
+			// randomly it or en or ru 
+			const reverse = Math.floor(Math.random() * 6) % 2 === 0;
+			if (reverse ) {
+				current = [
+					x.it,
+					x.ru || x.en,
+				];
+			} else {
+				current = [
+					x.ru || x.en,
+					x.it,
+				];
+			}
 		} else {
 			current = undefined;
 		}
