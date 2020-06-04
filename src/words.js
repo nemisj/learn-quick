@@ -10,5 +10,13 @@ export const existingWords = [
 	{
 		it: 'il panno',
 		en: 'bread',
-	}
+	},
+	{
+		it: 'la domanda',
+		en: 'question',
+	},
+	{
+		it: 'la risposta',
+		ru: 'ответ',
+	},
 ];
