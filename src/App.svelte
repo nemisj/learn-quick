@@ -94,12 +94,12 @@
 		current = shuffle(bad[index]);
 	};
 
-	const next = (isGood) => {
+	const next = ({ detail }) => {
 		if (flipped) {
 			// we are already turned. switch to the next word
 			const words = getVocabulary();
 			const the = words.bad[index];
-			if (isGood) {
+			if (detail) {
 				words.good.push(the);
 				words.bad.splice(index, 1);
 				setVocabulary(words);
@@ -119,7 +119,7 @@
 
 <main>
 	{#if current}
-		<Card back={current[0]} front={current[1]} flipped={flipped} onClick={next} />
+		<Card back={current[0]} front={current[1]} flipped={flipped} on:click={next} />
 	{/if}
 	{#if !current}
 		There are no words anymore. Genius;

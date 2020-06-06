@@ -1,8 +1,15 @@
 <script>
+	import { createEventDispatcher } from 'svelte';
+
 	export let back;
 	export let front;
-	export let onClick;
 	export let flipped;
+
+	const dispatch = createEventDispatcher();
+
+	const onClick = (res) => {
+		dispatch('click', res);
+	};
 </script>
 
 <div class="scene">
