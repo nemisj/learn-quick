@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte';
 	import { vocabulary } from './vocabularyStore.js';
 
-	let flipped = '';
+	let flipped = false;
 
 	let index = -1;
 	let current;
@@ -69,6 +69,7 @@
 </script>
 
 <main>
+	<div>Good: {$vocabulary.good.length}; Bad: {$vocabulary.bad.length}</div>
 	{#if current}
 		<Card back={current[0]} front={current[1]} flipped={flipped} on:click={next} />
 	{/if}
