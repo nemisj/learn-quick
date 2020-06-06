@@ -9,10 +9,6 @@ const key = 'words';
 
 const sync = (words) => {
 	const wordsCount = words.bad.length + words.good.length;
-	if (wordsCount === existingWords.length) {
-		// do not do this, only if words are added
-		return words;
-	}
 
 	// move all the words from existingWords to 'bad' if they're not in good
 	const goodsMap = words.good.reduce((res, { it }) => {
@@ -20,10 +16,29 @@ const sync = (words) => {
 		return res;
 	}, {});
 
+	const namesMap = {};
+
+	words.good = [];
 	words.bad = [];
 	existingWords.forEach((word) => {
+		if (!word.it) {
+			throw new Error(`${JSON.stringify(word)} no italian`);
+		} else if (!word.ru && !word.en) {
+			throw new Error(`${JSON.stringify(word)} no translation`);
+		} else if (namesMap[word.it]) {
+			throw new Error(`"${word.it}" already exist`);
+		} else if (word.conjugation) {
+			if (word.conjugation.length != 6) {
+				throw new Error(`"${word.it}" has incorrect conjugations`);
+			}
+		}
+		namesMap[word.it] = true;
+
 		if (!goodsMap[word.it]) {
+			// a couple of rules
 			words.bad.push(word);	
+		} else {
+			words.good.push(word);
 		}
 	});
 
