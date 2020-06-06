@@ -92,5 +92,157 @@ export const existingWords = [
 		],
 		info: 'https://speakasap.com/ru/it-ru/seven/2/',
 		ru: 'иметь'
+	},
+	{
+		it: 'mettere',
+		ru: 'класть',
+		conjugation: [
+			'metto',
+			'metti',
+			'mette',
+			'mettiamo',
+			'mettete',
+			'mettono'
+		]
+	},
+	{
+		it: 'sentire',
+		ru: 'чувствовать',
+		conjugation: [
+			'sento',
+			'senti',
+			'sente',
+			'sentiamo',
+			'sentite',
+			'sentono',
+		]
+	},
+	{
+		it: 'venire',
+		ru: 'приходить',
+		conjugation: [
+			'vengo',
+			'vieni',
+			'viene',
+			'veniamo',
+			'venite',
+			'vengono',
+		]
+	},
+	{
+		it: 'vendere',
+		ru: 'продавать',
+		conjugation: [
+			'vendon',
+			'vendi',
+			'vende',
+			'vendiamo',
+			'vendete',
+			'vendono'
+		],
+	},
+	{
+		it: 'dare',
+		ru: 'дать',
+		conjugation: [
+			'do',
+			'dai',
+			'dà',
+			'diamo',
+			'date',
+			'danno'
+		]
+	},
+	{
+		it: 'seguire',
+		ru: 'следовать',
+		conjugation: [
+			'seguo',
+			'segui',
+			'segue',
+			'seguiamo',
+			'seguite',
+			'seguono',
+		]
+	},
+	{
+		it: 'chiedere',
+		ru: 'спрашивать',
+		conjugation: [
+			'chiedo',
+			'chiedi',
+			'chiede',
+			'chiediamo',
+			'chiedete',
+			'chiedono',
+		]
+	},
+	{
+		it: 'essere',
+		en: 'to be',
+		conjugation: [
+			'sono',
+			'sei',
+			'è',
+			'siamo',
+			'siete',
+			'sono',
+		],
+	},
+	{
+		it: 'conoscere',
+		ru: 'знать',
+		conjugation: [
+			'conosco',
+			'conosci',
+			'conosce',
+			'conosciamo',
+			'conoscete',
+			'conoscono',
+		]
+	},
+	{
+		it: 'il ragno',
+		ru: 'паук',
+	},
+	{
+		it: 'potere',
+		ru: 'мочь',
+		conjugation: [
+			'posso',
+			'puoi',
+			'può',
+			'possiamo',
+			'potete',
+			'possono'
+		]
+	},
+	{
+		it: 'andare',
+		ru: 'идти',
+		conjugation: [
+			'vado',
+			'vai',
+			'va',
+			'andiamo',
+			'andate',
+			'vanno'
+		]
+	},
+	{
+		it: 'parlare',
+		ru: 'говорить',
+		conjugation: [
+			'parlo',
+			'parli',
+			'parla',
+			'parliamo',
+			'parlate',
+			'parlano'
+		]
+	},
+	{
+		it: 'orologio',
+		ru: 'смотреть',
 	}
 ];
