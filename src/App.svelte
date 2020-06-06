@@ -1,55 +1,7 @@
 <script>
 	import Card from './Card.svelte';
-	import { existingWords } from './words.js';
 	import { onMount } from 'svelte';
-
-	if (typeof window.localStorage === 'undefined') {
-		throw new Error('No localStorage support, sorry');
-	}
-
-	const getVocabulary = () => {
-		const wordsStr = localStorage.getItem('words');
-		let words;
-		if (wordsStr) {
-			try {
-				return JSON.parse(wordsStr);
-			} catch (err) {
-			}
-		}
-
-		return {
-			bad: [],
-			good: [],
-		};
-	};
-
-	const setVocabulary= (words) => {
-		localStorage.setItem('words', JSON.stringify(words));
-	};
-
-	const sync = () => {
-		const words = getVocabulary();
-		const wordsCount = words.bad.length + words.good.length;
-		if (wordsCount === existingWords.length) {
-			// do not do this, only if words are added
-			return;
-		}
-
-		// move all the words from existingWords to 'bad' if they're not in good
-		const goodsMap = words.good.reduce((res, { it }) => {
-			res[it] = true;
-			return res;
-		}, {});
-
-		words.bad = [];
-		existingWords.forEach((word) => {
-			if (!goodsMap[word.it]) {
-				words.bad.push(word);	
-			}
-		});
-
-		setVocabulary(words);
-	};
+	import { vocabulary } from './vocabularyStore.js';
 
 	let flipped = '';
 
@@ -74,7 +26,7 @@
 
 	const start = () => {
 		// take the random word from bad
-		const words = getVocabulary();
+		const words = $vocabulary;
 		const bad = words.bad;
 		const length = bad.length;
 		if (length === 0) {
@@ -97,12 +49,12 @@
 	const next = ({ detail }) => {
 		if (flipped) {
 			// we are already turned. switch to the next word
-			const words = getVocabulary();
+			const words = $vocabulary;
 			const the = words.bad[index];
 			if (detail) {
 				words.good.push(the);
 				words.bad.splice(index, 1);
-				setVocabulary(words);
+				$vocabulary = words;
 			}
 			start();
 			flipped = false;
@@ -112,7 +64,6 @@
 	};
 
 	onMount(() => {
-		sync();
 		start();
 	});
 </script>
