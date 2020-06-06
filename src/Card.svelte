@@ -14,7 +14,7 @@
 
 <div class="scene">
 	<div class="zork {flipped && 'flipped'}">
-		<div class="text" style="visibility: hidden">{back.length > front.length ? back : front}</div>
+		<div class="text" style="visibility: hidden; min-width: 200px;">{back.length > front.length ? back : front}</div>
 		<h1 class="card text back">{back}</h1>
 		<h1 class="card text">{front}</h1>
 		<div class="buttons-container">
