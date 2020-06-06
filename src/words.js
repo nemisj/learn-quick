@@ -8,7 +8,7 @@ export const existingWords = [
 		en: 'the boy',
 	},
 	{
-		it: 'il panno',
+		it: 'il pane',
 		en: 'bread',
 	},
 	{
@@ -19,4 +19,65 @@ export const existingWords = [
 		it: 'la risposta',
 		ru: 'ответ',
 	},
+	{
+		it: 'il cavallo',
+		ru: 'конь'
+	},
+	{
+		it: "l'anatra",
+		ru: 'утка'
+	},
+	{
+		it: 'la ciotola',
+		ru: 'чашка'
+	},
+	{
+		it: 'la colazione',
+		ru: 'завтрак'
+	},
+	{
+		it: 'il manzo',
+		ru: 'говядина'
+	},
+	{
+		it: 'la cena',
+		ru: 'ужин'
+	},
+	{
+		it: "l'uovo",
+		ru: 'яйцо'
+	},
+	{
+		it: 'la bevanda',
+		ru: 'напиток'
+	},
+	{
+		it: 'il cibo',
+		ru: 'еда'
+	},
+	{
+		it: 'grigia',
+		en: 'gray',
+	},
+	{
+		it: 'la tascha',
+		itm: 'le tasche',
+		ru: 'карман'
+	},
+	{
+		it: 'la camicia',
+		ru: 'рубашка'
+	},
+	{
+		it: 'la maglia',
+		ru: 'свитер'
+	},
+	{
+		it: 'la lana',
+		ru: 'шерсть'
+	},
+	{
+		it: 'la calza',
+		ru: 'носок'
+	}
 ];
