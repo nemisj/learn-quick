@@ -79,5 +79,18 @@ export const existingWords = [
 	{
 		it: 'la calza',
 		ru: 'носок'
+	},
+	{
+		it: 'avere',
+		conjugation: [
+			'ho',
+			'hai',
+			'ha',
+			'abbiamo',
+			'avete',
+			'hanno',
+		],
+		info: 'https://speakasap.com/ru/it-ru/seven/2/',
+		ru: 'иметь'
 	}
 ];

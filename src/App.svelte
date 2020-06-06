@@ -3,8 +3,18 @@
 	import { onMount } from 'svelte';
 	import { vocabulary } from './vocabularyStore.js';
 
+	const pronoun = [
+		'io',
+		'tu',
+		'lui/lei',
+		'noi',
+		'voi',
+		'loro',
+	];
+
 	let flipped = false;
 
+	let pronounIndex = -1;
 	let index = -1;
 	let current;
 
@@ -33,6 +43,7 @@
 			current = undefined;
 			return;
 		} else if (length === 1) {
+			index = 0;
 			current = shuffle(bad[0]);
 			return;
 		}
@@ -43,21 +54,41 @@
 		} while (newIndex === index);
 		index = newIndex;
 
+		// check type
 		current = shuffle(bad[index]);
 	};
 
 	const next = ({ detail }) => {
 		if (flipped) {
+			flipped = false;
 			// we are already turned. switch to the next word
 			const words = $vocabulary;
-			const the = words.bad[index];
+			const item = words.bad[index];
+
+			// we might have word with conjugation
+			// this is a different beast
+			if (item.conjugation) {
+				if (detail) {
+					pronounIndex++;
+
+					if (pronounIndex < pronoun.length) {
+						current = [
+							item.conjugation[pronounIndex],
+							pronoun[pronounIndex]
+						]
+						return;
+					}
+				}
+
+				pronounIndex = -1;
+			}
+
 			if (detail) {
-				words.good.push(the);
+				words.good.push(item);
 				words.bad.splice(index, 1);
 				$vocabulary = words;
 			}
 			start();
-			flipped = false;
 		} else {
 			flipped = true;
 		}
